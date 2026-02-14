@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -144,8 +147,140 @@
 
     <section class="section6">
         <div class="container">
-            <h2>Section 6</h2>
-            <p>นี่คือเนื้อหาของ Section 6 สามารถเพิ่มองค์ประกอบต่างๆ เข้าไปได้</p>
+            <h1>FREQUENTLY ASKED QUESTIONS</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare, nisl non rhoncus commodo.</p>
+        </div>
+        <div class="list-btn">
+            <button class="btn" data-category="orders">ORDERS</button>
+            <button class="btn" data-category="shipping">SHIPPING</button>
+            <button class="btn active" data-category="returns">RETURNS & EXCHANGES</button>
+            <button class="btn" data-category="sizing">SIZING & PRODUCTS</button>
+        </div>
+
+        <div class="faq-container">
+            <!-- ORDERS FAQs -->
+            <div class="faq-item" data-category="orders" style="display: none;">
+                <div class="faq-question">
+                    <span>HOW DO I PLACE AN ORDER?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Simply browse our collections, select your desired items, choose your size, and add them to cart. Then proceed to checkout to complete your purchase.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="orders" style="display: none;">
+                <div class="faq-question">
+                    <span>CAN I MODIFY MY ORDER AFTER PLACING IT?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Orders can be modified within 1 hour of placement. Please contact our customer service team immediately if you need to make changes.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="orders" style="display: none;">
+                <div class="faq-question">
+                    <span>WHAT PAYMENT METHODS DO YOU ACCEPT?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    We accept all major credit cards, PayPal, and bank transfers. All transactions are secure and encrypted.
+                </div>
+            </div>
+
+            <!-- SHIPPING FAQs -->
+            <div class="faq-item" data-category="shipping" style="display: none;">
+                <div class="faq-question">
+                    <span>Do you offer international shipping?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Items can be returned within 14 days of receipt, provided they are unworn, unwashed, and in original condition with tags attached.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="shipping" style="display: none;">
+                <div class="faq-question">
+                    <span>How long does delivery take?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, we ship to most countries worldwide. International shipping times vary by destination, typically 10-14 business days.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="shipping" style="display: none;">
+                <div class="faq-question">
+                    <span>How can I track my order?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, you will receive a tracking number via email once your order ships. You can track your package using this number.
+                </div>
+            </div>
+
+            <!-- RETURNS & EXCHANGES FAQs -->
+            <div class="faq-item" data-category="returns">
+                <div class="faq-question">
+                    <span>WHAT IS YOUR RETURN POLICY?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down" style="transform: rotate(-180deg);"></i>
+                </div>
+                <div class="faq-answer active">
+                    Items can be returned within 14 days of receipt, provided they are unworn, unwashed, and in original condition with tags attached.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="returns">
+                <div class="faq-question">
+                    <span>CAN I EXCHANGE FOR A DIFFERENT SIZE?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, exchanges for different sizes are available within 14 days. Please contact our customer service team to arrange an exchange.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="returns">
+                <div class="faq-question">
+                    <span>ARE SALE ITEMS REFUNDABLE?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sale items are final sale and cannot be returned or exchanged unless they are defective.
+                </div>
+            </div>
+
+            <!-- SIZING & PRODUCTS FAQs -->
+            <div class="faq-item" data-category="sizing" style="display: none;">
+                <div class="faq-question">
+                    <span>HOW DO I FIND MY SIZE?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Please refer to our size guide available on each product page. Measurements are provided in both inches and centimeters.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sizing" style="display: none;">
+                <div class="faq-question">
+                    <span>DO YOUR PRODUCTS RUN TRUE TO SIZE?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Most of our items run true to size. However, some pieces may have a different fit. Please check the product description for specific fit information.
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sizing" style="display: none;">
+                <div class="faq-question">
+                    <span>HOW DO I CARE FOR MY GARMENTS?</span>
+                    <i class="faq-icon fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Care instructions are provided on the tag of each garment. Generally, we recommend hand washing or gentle machine wash in cold water.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -164,7 +299,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <!-- <script src="js/text-runner.js"></script> -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
