@@ -40,7 +40,7 @@ p {
 /* Fixed Position Brand Text */
 .text-fixed-pos h1 {
     position: fixed;
-    font-size: 16vw !important;
+    font-size: 16vw;
     margin-top: -5%;
     z-index: 888;
     font-weight: 900;
@@ -52,8 +52,17 @@ p {
     mix-blend-mode: difference;
 }
 
-/* Base Section Styles */
-section {
-    padding: 60px 20px;
-    min-height: 400px;
+@media (max-width: 768px) {
+    .text-fixed-pos h1 {
+        margin-top: -4%;
+        letter-spacing: 0.5rem;
+    }
 }
+
+@media (max-width: 425px) {
+    .text-fixed-pos h1 {
+        font-size: 14vw;
+        letter-spacing: 0.5rem;
+    }
+}
+

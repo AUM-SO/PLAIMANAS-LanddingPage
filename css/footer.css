@@ -124,7 +124,6 @@ footer {
     }
     
     .footer-bottom {
-        flex-direction: column;
         gap: 10px;
         text-align: center;
     }
@@ -132,10 +131,10 @@ footer {
 
 @media (max-width: 480px) {
     .footer-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
     }
     
     .footer-column.newsletter {
-        grid-column: span 1;
+        grid-column: span 2;
     }
 }
