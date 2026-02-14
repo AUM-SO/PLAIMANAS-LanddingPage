@@ -46,9 +46,10 @@ p {
     font-weight: 900;
     letter-spacing: 1rem;
     color: white;
-    opacity: 0.8;
+    opacity: 1;
     width: 100%;
     text-align: center;
+    mix-blend-mode: difference;
 }
 
 /* Base Section Styles */
