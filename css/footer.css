@@ -40,7 +40,7 @@ footer {
 }
 
 .footer-column ul li a:hover {
-    color: #000;
+    opacity: 0.6;
 }
 
 /* Newsletter */
@@ -59,6 +59,7 @@ footer {
     outline: none;
     font-family: "Hanken Grotesk", sans-serif;
     transition: border-color 0.3s ease;
+    border-bottom-color: #000;
 }
 
 .newsletter-form input:focus {

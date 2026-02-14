@@ -26,6 +26,7 @@
 <body>
 
     <div class="nav">
+        <div class="nav-overlay"></div>
         <div class="container-nav">
             <div class="dropdown">
                 <div class="dropdown-selected">TH - THB ▼</div>
@@ -37,7 +38,15 @@
                 <ul>
                     <li><a href="#">WOMEN</a></li>
                     <li><a href="#">COLLECTIONS</a></li>
-                    <li><a href="#">EDITORIAL</a></li>
+                    <li class="has-submenu">
+                        <a href="#">EDITORIAL</a>
+                        <div class="submenu">
+                            <a href="#">A.S.C</a>
+                            <a href="#">BAZAAR</a>
+                            <a href="#">ELLE</a>
+                            <a href="#">GQ</a>
+                        </div>
+                    </li>
                     <li><a href="#">NEWS</a></li>
                     <li><a href="#">STORIES</a></li>
                 </ul>
@@ -92,7 +101,6 @@
         </div>
     </section>
 
-    <!-- todo hover transition -->
     <section class="section4">
         <div class="image-section4">
             <img src="./assets/images/section-4-1.png" alt="">

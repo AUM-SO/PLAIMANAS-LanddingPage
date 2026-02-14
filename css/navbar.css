@@ -6,7 +6,27 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+}
+
+/* Overlay for submenu */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.nav:has(.has-submenu:hover) .nav-overlay {
+    opacity: 1;
+    visibility: visible;
 }
 
 .nav .container-nav {
@@ -14,6 +34,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 2%;
+    position: relative;
 }
 
 /* Dropdown Section */
@@ -49,7 +70,6 @@
     transform: translateY(-10px);
     transition: all 0.3s ease;
     min-width: 110px;
-    z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -77,6 +97,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    z-index: 1001;
 }
 
 .nav-menu ul {
@@ -90,18 +111,66 @@
 .nav-menu li {
     margin: 0;
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+/* Submenu for EDITORIAL */
+.nav-menu .has-submenu {
+    position: relative;
+}
+
+.nav-menu .submenu {
+    position: absolute;
+    top: 20%;
+    left: -35px;
+    min-width: 200px;
+    padding: 20px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.nav-menu .has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-menu .submenu a {
+    display: block;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: all 0.2s ease;
+    transform: none;
+}
+
+.nav-menu .submenu a:hover {
+    font-size: 0.95rem;
+    transform: scale(1.2);
+    font-weight: 500;
+    transform: none;
 }
 
 /* Hover Animation - Push siblings */
-.nav-menu li:has(+ li:hover),
-.nav-menu li:has(+ li + li:hover),
-.nav-menu li:has(+ li + li + li:hover),
-.nav-menu li:has(+ li + li + li + li:hover) {
+.nav-menu li:has(+ li:hover):not(.has-submenu:hover),
+.nav-menu li:has(+ li + li:hover):not(.has-submenu:hover),
+.nav-menu li:has(+ li + li + li:hover):not(.has-submenu:hover),
+.nav-menu li:has(+ li + li + li + li:hover):not(.has-submenu:hover) {
     transform: translateX(-30px);
 }
 
-.nav-menu li:hover ~ li {
+.nav-menu li:hover~li {
     transform: translateX(30px);
+}
+
+/* Disable transform for li with submenu when hovered */
+.nav-menu .has-submenu:hover {
+    transform: none;
 }
 
 .nav-menu a {
@@ -121,6 +190,17 @@
     font-weight: 900;
 }
 
+/* Override hover for items with submenu */
+.nav-menu .has-submenu>a:hover {
+    transform: scale(1.1);
+}
+
+/* Change EDITORIAL text color to white when hovering */
+.nav-menu .has-submenu:hover>a {
+    color: #fff;
+    transform: scale(1.1);
+}
+
 /* Right Navigation */
 .right-nav {
     display: flex;
@@ -130,7 +210,7 @@
 .right-nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -172,15 +252,14 @@
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .nav-menu ul {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .nav-menu a {
         font-size: 0.8rem;
     }
 }
-
