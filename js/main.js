@@ -89,6 +89,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial call
     handleScroll();
 
+    // Mobile Menu Toggle
+    const btnMenuMobile = document.querySelector('.btn-menu-mobile');
+    const mobileMenuModal = document.querySelector('.mobile-menu-modal');
+    const body = document.body;
+
+    if (btnMenuMobile && mobileMenuModal) {
+        btnMenuMobile.addEventListener('click', function() {
+            const isActive = mobileMenuModal.classList.contains('active');
+            
+            if (isActive) {
+                // Close modal
+                mobileMenuModal.classList.remove('active');
+                btnMenuMobile.classList.remove('active');
+                body.style.overflow = '';
+            } else {
+                // Open modal
+                mobileMenuModal.classList.add('active');
+                btnMenuMobile.classList.add('active');
+                body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close when clicking outside
+        mobileMenuModal.addEventListener('click', function(e) {
+            if (e.target === mobileMenuModal) {
+                mobileMenuModal.classList.remove('active');
+                btnMenuMobile.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    }
+
+    // Mobile Submenu Toggle
+    const hasSubmenuMobile = document.querySelector('.has-submenu-mobile');
+    if (hasSubmenuMobile) {
+        const menuLink = hasSubmenuMobile.querySelector('.menu-link');
+        if (menuLink) {
+            menuLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                hasSubmenuMobile.classList.toggle('active');
+            });
+        }
+    }
+
     // FAQ Accordion functionality
     const faqQuestions = document.querySelectorAll('.faq-question');
     

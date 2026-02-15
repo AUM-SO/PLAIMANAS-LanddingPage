@@ -51,6 +51,14 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+
+    & .arrow-dropdown {
+        font-size: 8px;
+        margin-left: 5px;
+    }
 }
 
 .dropdown:hover .dropdown-selected {
@@ -88,6 +96,149 @@
 
 .dropdown-option:hover {
     background-color: #f5f5f5;
+}
+
+/* Mobile Menu Modal */
+.mobile-menu-modal {
+    position: fixed;
+    top: 8%;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 9999;
+    /* transition: right 0.3s ease; */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.mobile-menu-modal.active {
+    right: 0px;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.mobile-menu-nav {
+    flex: 1;
+    padding: 0px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-menu-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu-nav>ul>li {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mobile-menu-nav>ul>li>a,
+.mobile-menu-nav>ul>li>.menu-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-nav>ul>li>a:hover,
+.mobile-menu-nav>ul>li>.menu-link:hover {
+    transform: scale(1.4);
+    font-weight: bold;
+    color: black;
+}
+
+.arrow-mobile {
+    font-size: 7px;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+.has-submenu-mobile.active .arrow-mobile {
+    transform: rotate(180deg);
+}
+
+.submenu-mobile {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.has-submenu-mobile.active .submenu-mobile {
+    max-height: 500px;
+}
+
+.submenu-mobile li {
+    margin-bottom: 15px;
+}
+
+.submenu-mobile li a {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+    display: block;
+}
+
+.submenu-mobile li a:hover {
+    color: #767676;
+}
+
+.mobile-menu-footer {
+    position: absolute;
+    bottom: 0px;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.mobile-menu-footer h1 {
+    font-size: 15vw;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mobile-signin {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+}
+
+.mobile-signin:hover {
+    color: #767676;
 }
 
 /* Navigation Menu (Center) */
@@ -208,10 +359,10 @@
 .right-nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 30px;
     margin: 0;
     padding: 0;
-    align-items: center;
 }
 
 .right-nav li {
@@ -248,14 +399,37 @@
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
+    position: relative;
+    z-index: 10000;
+    transition: all 0.3s ease;
+}
+
+.btn-menu-mobile .icon-menu,
+.btn-menu-mobile .icon-close {
+    position: relative;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.btn-menu-mobile .icon-close {
+    display: none;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+}
+
+.btn-menu-mobile.active .icon-menu {
+    display: none;
+}
+
+.btn-menu-mobile.active .icon-close {
+    display: block;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .nav .container-nav {
-        /* flex-direction: column; */
         gap: 15px;
         padding: 0;
     }
@@ -266,16 +440,26 @@
 
     .btn-menu-mobile {
         display: block;
-        background: none;
-        border: none;
-        padding: 10px 20px;
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 auto;
+        font-size: 10px;
     }
 
     .nav-menu a {
         font-size: 0.8rem;
+    }
+
+    .mobile-menu-footer {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mobile-menu-footer h1 {
+        font-weight: 900;
+        letter-spacing: 0.1em;
     }
 }
 
@@ -283,9 +467,19 @@
     .container-nav {
         margin: 0;
     }
-    
+
     .right-nav ul {
         gap: 10px;
+    }
+
+    .right-nav img {
+        width: unset;
+        height: unset;
+        font-size: 14px;
+    }
+
+    .mobile-menu-nav>ul>li {
+        margin-left: 20px;
     }
 
 
