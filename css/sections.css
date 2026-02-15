@@ -787,9 +787,11 @@
 }
 
 @media (max-width: 425px) {
-    .section3 .image-section3 {
+
+    .section3 .image-section3,
+    .section2 .image-section2 {
         & h1 {
-            font-size: 10vw;
+            font-size: 35px;
         }
     }
 
