@@ -280,7 +280,13 @@
 }
 
 @media screen and (max-width: 425px) {
+    .container-nav {
+        margin: 0;
+    }
+    
     .right-nav ul {
         gap: 10px;
     }
+
+
 }

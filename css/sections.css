@@ -833,7 +833,7 @@
         }
 
         & .text-mobile {
-            font-size: 1rem;
+            font-size: 18px;
             display: block !important;
             line-height: 20px;
         }

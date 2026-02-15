@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const section3Container = document.querySelector('.section3 .image-section3');
     const plaimanas = document.querySelector('.text-fixed-pos h1');
 
+    // Check if mobile device
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
     function handleScroll() {
         // Handle Section 2 H1 - เริ่มเลื่อนเมื่อ PLAIMANAS ถึง h1
         if (section2H1 && section2Container && plaimanas) {
@@ -25,8 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const maxTravel = containerHeight * 0.8;
                 const progress = Math.min(travelDistance / maxTravel, 1);
                 
-                // Move from -50% (center) to max 175% (stop at 175)
-                const translateY = Math.min(-50 + (progress * 1010), 175);
+                // Different values for mobile and desktop
+                const mobile = isMobile();
+                const maxTranslateY = mobile ? 65 : 175;
+                const multiplier = mobile ? 900 : 1010;
+
+                // Move from -50% (center) to max (60% for mobile, 175% for desktop)
+                const translateY = Math.min(-50 + (progress * multiplier), maxTranslateY);
                 section2H1.style.transform = `translate(-50%, ${translateY}%)`;
             } else {
                 // Reset to center position
@@ -49,8 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const maxTravel = containerHeight * 0.8;
                 const progress = Math.min(travelDistance / maxTravel, 1);
                 
-                // Move from -50% (center) to max 175% (stop at 175)
-                const translateY = Math.min(-50 + (progress * 3200), 270);
+                // Different values for mobile and desktop
+                const mobile = isMobile();
+                const maxTranslateY = mobile ? 60 : 270;
+                const multiplier = mobile ? 2000 : 3200;
+                
+                // Move from -50% (center) to max (60% for mobile, 270% for desktop)
+                const translateY = Math.min(-50 + (progress * multiplier), maxTranslateY);
+                console.log('translateY -->', translateY);
                 section3H1.style.transform = `translate(-50%, ${translateY}%)`;
             } else {
                 section3H1.style.transform = `translate(-50%, -50%)`;
